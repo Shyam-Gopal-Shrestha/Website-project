@@ -1,9 +1,11 @@
+import HomePage from "../page/HomePage";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
-      <div>cosmic solution</div>
+      <HomePage />
     </>
   );
 }
