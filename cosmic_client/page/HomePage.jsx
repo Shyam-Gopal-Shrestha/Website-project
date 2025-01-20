@@ -4,11 +4,11 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function HomePage() {
   return (
-    <Container fluid className="vh-100 d-flex align-items-center">
-      <Row className="w-100">
+    <Container fluid className="vh-100">
+      <Row className="h-100">
         <Col
           xs={12}
-          md={8}
+          md={6}
           className="d-flex align-items-center justify-content-center bg-light"
         >
           <div>
@@ -19,7 +19,7 @@ export default function HomePage() {
 
         <Col
           xs={12}
-          md={8}
+          md={6}
           className="d-flex align-items-center justify-content-center"
         >
           <SignupForm />
