@@ -1,13 +1,19 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const MONGO_URL = "mongodb://localhost:27017/cosmic_db";
+dotenv.config();
+
+// Access MONGO_URL only once at the top
+const MONGO_URL = process.env.MONGO_URL;
+
+console.log("mongoDB url: ", MONGO_URL); // Log it once here
 
 const conMongoDb = async () => {
   try {
     const conn = await mongoose.connect(MONGO_URL);
     conn && console.log("Mongo Db Connected");
   } catch (error) {
-    console.log(error);
+    console.log("MongoDB connection error:", error);
   }
 };
 
