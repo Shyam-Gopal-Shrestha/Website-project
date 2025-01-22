@@ -12,7 +12,7 @@ export default function HomePage() {
           className="d-flex align-items-center justify-content-center bg-light"
         >
           <div>
-            <h1>Welcome To Cosmic</h1>
+            <h1>Go Green Forever</h1>
             <p>Make one step better!!</p>
           </div>
         </Col>
