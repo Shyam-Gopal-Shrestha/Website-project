@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const SignupForm = () => {
   // State hook to track form data
@@ -114,6 +115,14 @@ const SignupForm = () => {
       <Button variant="success" type="submit" className="w-100">
         Sign up
       </Button>
+      <div>
+        <p>
+          Already have account?{"  "}
+          <Link to="/login" className="text-decoration-none">
+            Login Here
+          </Link>
+        </p>
+      </div>
     </Form>
   );
 };
