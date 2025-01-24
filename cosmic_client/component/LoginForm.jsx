@@ -19,14 +19,6 @@ const LoginForm = () => {
       <Button variant="primary" type="submit" className="w-100">
         Login
       </Button>
-      <div className="mt-3 text-center">
-        <p>
-          Don't have an account?{" "}
-          <Link to="/signup" className="text-decoration-none">
-            Sign up here
-          </Link>
-        </p>
-      </div>
     </Form>
   );
 };

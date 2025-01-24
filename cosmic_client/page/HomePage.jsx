@@ -1,6 +1,7 @@
 import React from "react";
-import SignupForm from "../component/SignupForm";
 import { Container, Row, Col } from "react-bootstrap";
+import AuthPage from "../component/AuthPage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
           <div>
             <h1>Go Green Forever</h1>
             <p>Make one step better!!</p>
+            <FontAwesomeIcon icon="fa-solid fa-trees" />
           </div>
         </Col>
 
@@ -22,7 +24,7 @@ export default function HomePage() {
           md={6}
           className="d-flex align-items-center justify-content-center"
         >
-          <SignupForm />
+          <AuthPage />
         </Col>
       </Row>
     </Container>

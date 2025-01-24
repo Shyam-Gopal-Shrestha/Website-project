@@ -115,14 +115,6 @@ const SignupForm = () => {
       <Button variant="success" type="submit" className="w-100">
         Sign up
       </Button>
-      <div>
-        <p>
-          Already have account?{"  "}
-          <Link to="/login" className="text-decoration-none">
-            Login Here
-          </Link>
-        </p>
-      </div>
     </Form>
   );
 };
