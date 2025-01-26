@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AuthPage from "../component/AuthPage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTree } from "@fortawesome/free-solid-svg-icons";
 
 export default function HomePage() {
   return (
@@ -13,9 +14,11 @@ export default function HomePage() {
           className="d-flex align-items-center justify-content-center bg-light"
         >
           <div>
-            <h1>Go Green Forever</h1>
+            <h1>
+              Go Green Forever
+              <FontAwesomeIcon icon={faTree} style={{ color: "#23953f" }} />
+            </h1>
             <p>Make one step better!!</p>
-            <FontAwesomeIcon icon="fa-solid fa-trees" />
           </div>
         </Col>
 
