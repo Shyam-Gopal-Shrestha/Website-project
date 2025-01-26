@@ -1,6 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CustomInput from "./CustomInput";
 
 // handle form input change
 const LoginForm = () => {
@@ -45,27 +46,27 @@ const LoginForm = () => {
     <Form onSubmit={handleOnSubmit}>
       <h3 className="text-center mb-4">Login</h3>
 
-      <Form.Group controlId="formEmail" className="mb-3">
-        <Form.Label>Email Address</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleOnChange}
-          required
-        />
-      </Form.Group>
+      <CustomInput
+        label="Email Address"
+        handleOnChange={handleOnChange}
+        inputAttributes={{
+          type: "email",
+          name: "email",
+          value: formData.email,
+          required: true,
+        }}
+      />
 
-      <Form.Group controlId="formPassword" className="mb-3">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleOnChange}
-          required
-        />
-      </Form.Group>
+      <CustomInput
+        label="Password"
+        handleOnChange={handleOnChange}
+        inputAttributes={{
+          type: "password",
+          name: "password",
+          value: formData.password,
+          required: true,
+        }}
+      />
 
       <Button variant="primary" type="submit" className="w-100">
         Login
