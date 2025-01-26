@@ -7,7 +7,7 @@ Content-Type: application/json
     "name": "shyam",
     "contactNumber": 123456789,
     "address": "ACT",
-    "email": "abc@gmail.com",
+    "email": "aaa@gmail.com",
     "password": 123
 }
 

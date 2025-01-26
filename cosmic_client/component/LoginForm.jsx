@@ -1,44 +1,43 @@
 import { Button, Form } from "react-bootstrap";
-import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import CustomInput from "./CustomInput";
+import { loginUser } from "../axios/userAxios.js";
+import useForm from "../hooks/useForm.js";
+import { toast } from "react-toastify";
 
+const initialFormData = {
+  email: "",
+  password: "",
+};
 // handle form input change
 const LoginForm = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const [message, setMessage] = useState("");
+  const { formData, handleOnChange } = useForm(initialFormData);
+
+  const { email, password } = formData;
+
   const navigate = useNavigate();
 
-  const handleOnChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  // handle form submission
   const handleOnSubmit = async (e) => {
-    // prevent default action of browser on events
     e.preventDefault();
-    console.log("Login form submitted", formData);
 
-    try {
-      const response = await fetch("http://localhost:8000/api/users/login", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      console.log("server response:", data);
-      if (response.ok) {
-        setMessage(`success: ${data.message}`);
-        navigate("/dashboard");
-      } else {
-        setMessage(`Error: ${data.error || "An error occured."}`);
-      }
-    } catch (error) {
-      console.log("Error:", error);
-      setMessage("An error occured while logging in.");
+    // axios call
+    const result = await loginUser({
+      email,
+      password,
+    });
+
+    console.log("formdata: ", result);
+
+    if (result.status === "error") {
+      console.log("Error:", result.message);
+      return toast.error(result.message);
+    }
+
+    toast.success(result.message);
+    if (result.status === "success") {
+      console.log("Login Successful:", result.message);
+      navigate("/dashboard");
     }
   };
 

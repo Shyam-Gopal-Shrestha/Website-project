@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import userRoutes from "./Routes/userRoutes.js";
+import userRouter from "./Routes/userRouter.js";
 import conMongoDb from "./config/mongodbConfig.js";
 
 // console.log(process.env);
@@ -16,7 +16,7 @@ app.use(cors());
 conMongoDb();
 
 // routes
-app.use("/api/users", userRoutes);
+app.use("/api/users", userRouter);
 
 // Start server
 const PORT = process.env.PORT;

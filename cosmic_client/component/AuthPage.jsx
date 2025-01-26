@@ -24,7 +24,11 @@ const AuthPage = () => {
 
   return (
     <div className="container">
-      {isLoginMode ? <LoginForm /> : <SignupForm />}
+      {isLoginMode ? (
+        <LoginForm />
+      ) : (
+        <SignupForm setIsLoginMode={setIsLoginMode} />
+      )}
       <p className="mt-3">
         {isLoginMode ? (
           <>
