@@ -8,6 +8,11 @@ export const hashPassword = (plainPassword) => {
   return hashPassword;
 };
 
-export const comparePassword = (plainPassword, hashPassword) => {
-  return bcrypt.compareSync(plainPassword, hashPassword);
+export const comparePassword = async (enteredPassword, storedPasswordHash) => {
+  try {
+    return await bcrypt.compare(enteredPassword, storedPasswordHash);
+  } catch (error) {
+    console.error("Error comparing passwords:", error);
+    throw new Error("Error comparing passwords");
+  }
 };

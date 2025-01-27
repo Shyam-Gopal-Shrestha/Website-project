@@ -15,6 +15,7 @@ const LoginForm = () => {
   const { formData, handleOnChange } = useForm(initialFormData);
 
   const { email, password } = formData;
+  console.log(formData);
 
   const navigate = useNavigate();
 

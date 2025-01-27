@@ -3,9 +3,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import CustomInput from "./CustomInput";
 import { createUser } from "../axios/userAxios.js";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import useForm from "../hooks/useForm.js";
-import { ToastContainer } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
 
 const initialFormData = {
@@ -38,9 +37,12 @@ const SignupForm = (props) => {
     console.log("formdata: ", result);
 
     if (result.status === "error") {
-      return toast.error(result.message);
+      toast.error(result.message || "Error occurred while creating user");
+      console.log(result);
+      return;
     }
     toast.success(result.message);
+    console.log(result);
     setIsLoginMode(true);
   };
 

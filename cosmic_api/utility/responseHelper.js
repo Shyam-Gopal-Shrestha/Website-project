@@ -1,5 +1,5 @@
 export const buildSuccessResponse = (res, data, message = "") => {
-  resizeBy.json({
+  res.json({
     status: "success",
     data,
     message,
